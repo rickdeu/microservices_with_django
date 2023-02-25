@@ -1,0 +1,83 @@
+version: '3'
+services:
+  #==================================================
+  #Config database for postgres
+  db_postgres:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=userservice
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  #==================================================
+  #Config database for mysql
+  db_mysql:
+    image: mysql:8.0.21
+    ports:
+      - "30000:3306"
+    volumes:
+      - ./mysql_db_data_container:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=productservice
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE_HOST=db
+      - MYSQL_DATABASE_PORT=3306
+  #==================================================
+  # Config container for a user_service
+  user_service_django:
+    container_name: user_service
+    build:
+      context: .
+      dockerfile: user_service/Dockerfile
+    image: user_service
+    volumes:
+      - .:/app
+    command: 'python3 user_service/manage.py runserver 0.0.0.0:8000'
+    ports: 
+      - "8000:8000"
+    depends_on:
+      - db_postgres
+  #==================================================
+  # Config container for a product_service
+  product_service_django:
+    container_name: product_service
+    build:
+      context: .
+      dockerfile: product_service/Dockerfile
+    image: product_service
+    volumes:
+      - .:/app
+    command: 'python3 product_service/manage.py runserver 0.0.0.0:3001'
+    ports: 
+      - "3001:3001"
+    depends_on:
+      - db_mysql
+  #==================================================
+  # Config container for a shipment_service
+  shipment_service_django:
+    container_name: shipment_service
+    build:
+      context: .
+      dockerfile: shipment_service/Dockerfile
+    image: shipment_service
+    volumes:
+      - .:/app
+    command: 'python3 product_service/manage.py runserver 0.0.0.0:5000'
+    ports: 
+      - "5000:5000"
+  #==================================================
+  # Config container for a payment_service
+  payment_service_django:
+    container_name: payment_service
+    build:
+      context: .
+      dockerfile: payment_service/Dockerfile
+    image: payment_service
+    volumes:
+      - .:/app
+    command: 'python3 product_service/manage.py runserver 0.0.0.0:4001'
+    ports: 
+      - "4001:4001"
