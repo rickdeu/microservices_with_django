@@ -7,6 +7,11 @@
 This repo is about my learnin about "Designing Microservices Using Django", book writed by Shayank Jain.
 </h1>
 <hr>
+
+# AUTOMATE TEST FOR OUR MICROSERVICE
+<div align="center">
+    <img src="screeshot/tests_user_service.png" width="70%">
+</div>
 <!--
 <p>
 The primary goal of the book is to provide the information and skills that are
@@ -17,7 +22,3 @@ deployment.
 </p>
 <hr>
 -->
-# AUTOMATE TEST FOR OUR MICROSERVICE
-<div align="center">
-    <img src="screeshot/tests_user_service.png" width="70%">
-</div>
