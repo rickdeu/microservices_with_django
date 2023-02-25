@@ -4,9 +4,10 @@
 
 
 <h1>
-This book is about my learnin about "Designing Microservices Using Django", by Shayank Jain.
+This repo is about my learnin about "Designing Microservices Using Django", book writed by Shayank Jain.
 </h1>
 <hr>
+<!--
 <p>
 The primary goal of the book is to provide the information and skills that are
 necessary to deploy the microservice architecture with Django. The book contains
@@ -15,7 +16,7 @@ Django application, as well as how to integrate it into other third-party soluti
 deployment.
 </p>
 <hr>
-
+-->
 # AUTOMATE TEST FOR OUR MICROSERVICE
 <div align="center">
     <img src="screeshot/tests_user_service.png" width="70%">
