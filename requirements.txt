@@ -4,13 +4,13 @@ certifi==2022.12.7
 charset-normalizer==2.1.1
 coreapi==2.3.3
 coreschema==0.0.4
-Django==4.1.4
+Django
 django-cors-headers==3.13.0
 django-filter==22.1
 django-ip-geolocation==1.6.1
 djangorestframework==3.14.0
 exceptiongroup==1.1.0
-haversine==2.7.0
+haversine==2.7.0 
 idna==3.4
 iniconfig==2.0.0
 itypes==1.2.0
