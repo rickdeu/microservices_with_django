@@ -27,4 +27,8 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        python manage.py test
+        python user_service/manage.py test
+        python shipment_service/manage.py test
+        python product_service/manage.py test
+        python payment_service/manage.py test
+        
